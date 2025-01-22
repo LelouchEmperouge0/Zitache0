@@ -1,0 +1,258 @@
+/* Styles de base */
+body {
+    margin: 0;
+    /* Supprimer overflow: hidden pour permettre le défilement */
+    background: linear-gradient(135deg, #ff7eb3, #ff758c);
+    color: white;
+    font-family: 'Pacifico', cursive;
+    text-align: center;
+}
+
+.container {
+    position: relative;
+    min-height: 100vh; /* Utiliser min-height au lieu de height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #ff007f, 0 0 40px #ff007f;
+    }
+    100% {
+        text-shadow: 0 0 20px #fff, 0 0 30px #ff007f, 0 0 40px #ff007f, 0 0 50px #ff007f;
+    }
+}
+
+.description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+.countdown {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffeb3b;
+    text-shadow: 0 0 10px #ffeb3b;
+}
+
+/* Styles pour la photo de la première page */
+.pre-birthday-photo {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 400px; /* Ajuster la largeur maximale */
+    height: 300px; /* Ajuster la hauteur */
+    overflow: hidden; /* Masquer les parties débordantes */
+    border-radius: 10px;
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.pre-birthday-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Recadrer la photo pour remplir le conteneur */
+    animation: bounce 3s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+.video-section, .photo-gallery, .thank-you {
+    margin-top: 20px;
+}
+
+.videos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.videos video {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.photo-gallery .photos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.photo-gallery img {
+    width: 100%;
+    max-width: 200px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.hidden {
+    display: none;
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+/* Filigrane */
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('filigrane.png') repeat;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 9999;
+}
+
+/* Media Queries pour les mobiles */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .description {
+        font-size: 1rem;
+    }
+
+    .countdown {
+        font-size: 1.5rem;
+    }
+
+    .videos video {
+        max-width: 100%;
+    }
+
+    .photo-gallery img {
+        max-width: 150px;
+    }
+
+    .pre-birthday-photo {
+        height: 200px; /* Ajuster la hauteur pour les mobiles */
+    }
+}
+
+/* Styles pour les vidéos dans la section "Faire tomber le masque" */
+.photo-gallery .videos {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.photo-gallery .videos video {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+/* Styles pour la page d'administration */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+}
+
+#login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+#login-form input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+#login-form button {
+    padding: 10px 20px;
+    background: #ff758c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+#login-form button:hover {
+    background: #ff7eb3;
+}
+
+#message-list {
+    margin-top: 20px;
+}
+
+#messages {
+    list-style-type: none;
+    padding: 0;
+}
+
+#messages li {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+}
+
+
+
+@media (max-width: 480px) {
+    .videos video {
+        max-width: 100%;
+    }
+    .photo-gallery img {
+        max-width: 100%;
+    }
+    .pre-birthday-photo {
+        height: 200px; /* Ajuste la hauteur pour les mobiles */
+    }
+}
+
+
+:root {
+    --primary-color: #ff7eb3;
+    --secondary-color: #ff758c;
+}
+body {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+}
